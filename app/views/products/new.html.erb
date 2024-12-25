@@ -1,11 +1,4 @@
-<% content_for :title, "New product" %>
-
-<h1>New product</h1>
-
-<%= render "form", product: @product %>
-
-<br>
-
+<h1 class="text-center mt-4">New Cake</h1>
 <div>
-  <%= link_to "Back to products", products_path %>
+  <%= render 'form' %>
 </div>
