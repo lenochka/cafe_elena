@@ -1,10 +1,32 @@
-<p style="color: green"><%= notice %></p>
+<h2 class="text-center mt-4"><%= @product.name %></h2>
 
-<%= render @product %>
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <div class="col-6 mt-4">
+      <div class="card h-100 text-center shadow p-1 mb-5  bg-white rounded">
+        <div class="mb-3">
+          <img src="../assets/<%= @product.photo_url %>" class="card-img-top" alt="photo">
+        </div>
+        <div class="card-body">
+          <div class="card-text"><%= simple_format(@product.description) %></div>
+          <div class="card-text"><%= @product.price %> $ </div>
+          <div class="card-text"><%= @product.weight %> kg </div>
 
-<div>
-  <%= link_to "Edit this product", edit_product_path(@product) %> |
-  <%= link_to "Back to products", products_path %>
-
-  <%= button_to "Destroy this product", @product, method: :delete %>
+          <div class="card-footer text-body-secondary">
+            <a href="#" class="btn btn-success">Add</a>
+          </div>
+          <%= link_to "Edit", edit_product_path(@product), class: "btn btn-outline-info" %>
+          <%= button_to "Destroy this product", @product,
+                class: "btn btn-outline-danger",
+                method: :delete, data: {confirm: "Are you sure?"} %>
+        </div>
+        <div class="card-footer text-body-secondary">
+          <a href="#" class="btn btn-info">Customize cake</a>
+        </div>
+        <div class="card-footer text-body-secondary">
+          <%="Get it tomorrow" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
