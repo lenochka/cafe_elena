@@ -4,6 +4,10 @@ ruby "3.3.6"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.1"
 gem "pg"
+gem "dartsass-rails"
+gem "autoprefixer-rails"
+gem "bootstrap", "~> 5.3.3"
+gem 'foreman', '~> 0.87.2'
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
 # Use the Puma web server [https://github.com/puma/puma]
