@@ -5,7 +5,7 @@
     <div class="col-6 mt-4">
       <div class="card h-100 text-center shadow p-1 mb-5  bg-white rounded">
         <div class="mb-3">
-          <img src="../assets/<%= @product.photo_url %>" class="card-img-top" alt="photo">
+          <img src="../<%= @product.photo_url %>" class="card-img-top" alt="photo">
         </div>
         <div class="card-body">
           <div class="card-text"><%= simple_format(@product.description) %></div>
