@@ -9,7 +9,7 @@
         </div>
         <div class="card-body">
           <div class="card-text"><%= simple_format(@product.description) %></div>
-          <div class="card-text"><%= @product.price %> $ </div>
+          <div class="card-text"><%= number_to_currency(@product.price) %></div>
           <div class="card-text"><%= @product.weight %> kg </div>
 
           <div class="card-footer text-body-secondary">
