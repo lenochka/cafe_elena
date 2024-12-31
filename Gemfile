@@ -7,7 +7,7 @@ gem "pg"
 gem "dartsass-rails"
 gem "autoprefixer-rails"
 gem "bootstrap", "~> 5.3.3"
-gem 'foreman', '~> 0.87.2'
+gem 'foreman', '~> 0.88.1'
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
 # Use the Puma web server [https://github.com/puma/puma]
