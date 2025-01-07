@@ -1,0 +1,29 @@
+<h1 class="text-center mt-4">Cakes</h1>
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+    <% @products.each do |product| %>
+      <div class="col">
+          <div class="card h-100 text-center shadow p-3 mb-5  bg-white rounded">
+            <div class="card-header">
+            </div>
+
+            <img src="../<%= product.photo_url %>" class="card-img-top" alt="bc">
+
+            <div class="card-body">
+              <h5 class="card-title"><%= product.name %></h5>
+              <p class="card-text"><%= truncate(product.description, length: 100) %></p>
+              <p class="card-text"><%= number_to_currency(product.price) %></p>
+              <p class="card-text"><%= product.weight %> kg </p>
+              <div class="d-grid gap-2 d-md-flex justify-content-center">
+                <%= link_to "Order", '#', class: "btn btn-info" %>
+                <a href="#" class="btn btn-outline-info">Customize cake</a>
+              </div>
+              <div class="card-footer text-body-secondary">
+                <%="Get it tomorrow" %>
+              </div>
+            </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
