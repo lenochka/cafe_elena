@@ -11,20 +11,12 @@
           <div class="card-text"><%= simple_format(@product.description) %></div>
           <div class="card-text"><%= number_to_currency(@product.price) %></div>
           <div class="card-text"><%= @product.weight %> kg </div>
-
-          <div class="card-footer text-body-secondary">
-            <a href="#" class="btn btn-success">Add</a>
+          <div class="d-grid gap-2 d-md-flex justify-content-center">
+            <%= link_to "Edit", edit_product_path(@product), class: "btn btn-outline-info" %>
+            <%= button_to "Delete", @product,
+                  class: "btn btn-outline-danger",
+                  method: :delete, data: {confirm: "Are you sure?"} %>
           </div>
-          <%= link_to "Edit", edit_product_path(@product), class: "btn btn-outline-info" %>
-          <%= button_to "Destroy this product", @product,
-                class: "btn btn-outline-danger",
-                method: :delete, data: {confirm: "Are you sure?"} %>
-        </div>
-        <div class="card-footer text-body-secondary">
-          <a href="#" class="btn btn-info">Customize cake</a>
-        </div>
-        <div class="card-footer text-body-secondary">
-          <%="Get it tomorrow" %>
         </div>
       </div>
     </div>
