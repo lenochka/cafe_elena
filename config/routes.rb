@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "stores#index", as: 'stores_index'
   resources :products
+
+  get 'signup' => 'users#new'
 end
