@@ -7,23 +7,23 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <%= link_to "Cakes", products_path, class: "nav-link" %>
+        <% if authenticated? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Cakes
+            </a>
+            <ul class="dropdown-menu">
+              <li></li>
+              <li><%= link_to "All Cakes", products_path, class: "dropdown-item" %></li>
+              <li><%= link_to "New Cake", new_product_path, class: "dropdown-item" %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Cakes", stores_path, class: "nav-link" %>
+          </li>
+        <% end %>
 
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Kids Birthday Cakes
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Bluey</a></li>
-            <li><a class="dropdown-item" href="#">Frozen</a></li>
-            <li><a class="dropdown-item" href="#">Dinosaurs</a></li>
-            <li><a class="dropdown-item" href="#">Stitch</a></li>
-            <li><a class="dropdown-item" href="#">Moana</a></li>
-          </ul>
-        </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Contacts</a>
         </li>
@@ -31,15 +31,22 @@
 
 
       <div class="d-flex flex-row-reverse">
-        <div class="p-2">
-          <%= link_to "Sign up", signup_path, class: "btn btn-outline-success" %>
-        </div>
-        <div class="p-2">
-          <%= link_to "Sign in", new_session_path, class: "btn btn-light" %>
-        </div>
-        <div class="p-2">
-          <%= button_to 'Sign out', session_path, class: "nav-link", method: :delete , class: "btn btn-light"%>
-        </div>
+
+        <% if authenticated? %>
+          <div class="p-2">
+            <%= button_to 'Sign out', session_path, class: "nav-link", method: :delete , class: "btn btn-light"%>
+          </div>
+          <div class="p-2">
+            <%= button_to Current.user.user_name, edit_user_path(Current.user), class: "nav-link", method: :get, class: "btn btn-light"%>
+          </div>
+        <% else %>
+          <div class="p-2">
+            <%= link_to "Sign up", signup_path, class: "btn btn-outline-success" %>
+          </div>
+          <div class="p-2">
+            <%= link_to "Sign in", new_session_path, class: "btn btn-light" %>
+          </div>
+        <% end %>
         <div class="p-2">
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
