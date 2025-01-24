@@ -25,17 +25,15 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="d-flex flex-column">
+  <body class="d-flex flex-column min-vh-100">
   <%= render 'layouts/nav' %>
   <div id="page-content">
-    <%= render 'layouts/messages' %>
-    <%= yield %>
+    <div class="flex-grow-1">
+      <%= render 'layouts/messages' %>
+      <%= yield %>
+    </div>
   </div>
+  <%= render 'layouts/footer' %>
   </body>
 </html>
 
-<footer id="sticky-footer" class="py-4 bg-light ">
-  <div class="container text-center">
-    <small>Copyright &copy; <%= link_to "Elena Lysenko", "", class: "text-black" %></small>
-  </div>
-</footer>
