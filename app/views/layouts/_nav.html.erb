@@ -7,7 +7,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <% if authenticated? %>
+
+        <% if authenticated? && !Current.user.customer?%>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Cakes
@@ -22,10 +23,15 @@
             <%= link_to "Cakes", stores_path, class: "nav-link" %>
           </li>
         <% end %>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contacts</a>
-        </li>
+        <% if authenticated? && Current.user.admin? %>
+          <li class="nav-item">
+            <%= link_to "Roles", roles_path, class: "nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contacts</a>
+          </li>
+        <% end %>
       </ul>
 
       <ul class="navbar-nav flex-row flex-wrap bd-navbar-nav">

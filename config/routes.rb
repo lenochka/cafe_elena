@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   resources :passwords, param: :token
   resources :users, except: [:new]
   resources :stores
+  resources :roles
+  resources :customers, only: [:edit, :update]
+  resources :employees
+  resources :super_user
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
