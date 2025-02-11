@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   resources :passwords, param: :token
   resources :users, except: [:new]
   resources :stores
+  resources :roles
+  resources :customers, only: [:edit, :update]
+  resources :employees
+  resources :admins
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -15,7 +20,8 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  root to: "stores#index"
+  #root to: "stores#index"
+  root to: "pages#home"
   resources :products
 
   get 'signup' => 'users#new'
